@@ -29,7 +29,7 @@ module.exports = {
         'import/no-duplicates': 'error',
         'no-prototype-builtins': 'error',
         'no-restricted-syntax': 'off', // need sort it out
-        'implicit-arrow-linebreak': ['error', 'below'],
+        'implicit-arrow-linebreak': 'off', // стрелочные функции перенос ниже на строку ['error', 'below'],
         camelcase: 'off',
         'max-classes-per-file': ['error', { max: 2 }],
         'no-shadow': 'off', // a lot of errors
