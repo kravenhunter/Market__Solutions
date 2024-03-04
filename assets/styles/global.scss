@@ -1,0 +1,49 @@
+@import "@/assets/styles/normalize.scss";
+@import "@/assets/styles/variables.scss";
+@import "@/assets/styles/fonts.scss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 10px;
+}
+body {
+  font-family: ubuntu, sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+p {
+  //14px
+  font-size: 1.4rem;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+h1 {
+  font-size: 3.5em;
+}
+h2 {
+  font-size: 2.8em;
+}
+h3 {
+  font-size: 2.45em;
+}
+h4 {
+  font-size: 2.1em;
+}
+h5 {
+  font-size: 17.5em;
+}
+h6 {
+  font-size: 1.54em;
+}

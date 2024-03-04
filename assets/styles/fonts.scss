@@ -1,0 +1,53 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"); */
+
+@font-face {
+  font-family: ubuntu;
+  src: local("Ubuntu-Light"),
+    url("@/assets/styles/fonts/Ubuntu/Ubuntu-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: ubuntu;
+  src: local("Ubuntu-Regular"),
+    url("@/assets/styles/fonts/Ubuntu/Ubuntu-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: ubuntu;
+  src: local("Ubuntu-Medium"),
+    url("@/assets/styles/fonts/Ubuntu/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: ubuntu;
+  src: local("Ubuntu-Bold"), url("@/assets/styles/fonts/Ubuntu/Ubuntu-Bold.ttf") format("truetype");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: ubuntu-italic;
+  src: local("Ubuntu-Italic-Light"),
+    url("@/assets/styles/fonts/Ubuntu/Ubuntu-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: ubuntu-italic;
+  src: local("Ubuntu-Italic-Regular"),
+    url("@/assets/styles/fonts/Ubuntu/Ubuntu-Light.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: ubuntu-italic;
+  src: local("Ubuntu-Italic-Medium"),
+    url("@/assets/styles/fonts/Ubuntu/Ubuntu-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: ubuntu-italic;
+  src: local("Ubuntu-Italic-Bold"),
+    url("@/assets/styles/fonts/Ubuntu/Ubuntu-BoldItalic.ttf") format("truetype");
+  font-weight: 800;
+}
