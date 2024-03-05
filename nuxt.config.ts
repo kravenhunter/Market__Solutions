@@ -6,21 +6,18 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "dachboard", mode: "out-in" },
     head: {
-      titleTemplate: "%s | DachBoard",
+      titleTemplate: "%s | WizSolution",
       htmlAttrs: {
         lang: "ru",
       },
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "description", content: "Web-Студия дизайна и разработки приложений" },
+        { name: "ogTitle", content: "WizSolution - Студия дизайна" },
+        { name: "ogDescription", content: "Web-Студия дизайна и разработки приложений" },
         { name: "format-detection", content: "telephone=no" },
       ],
-    },
-  },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
     },
   },
 });

@@ -1,0 +1,9 @@
+@function calsoFnts($desireFont) {
+  @return $desireFont / 1rem;
+}
+
+@mixin center_content() {
+  &.center__content {
+    width: min(100vw, 1400px);
+  }
+}

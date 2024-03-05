@@ -26,12 +26,30 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
-.color__dark {
-  color: white;
-  background: var(--color-dark);
+.color__white {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  border-radius: 50px;
+  padding: 12px;
+  color: var(--light-black);
+  background-color: var(--white-color);
+  border: 1px solid var(--light-black);
+  transition: background-color 1s;
   &:hover,
   &.router-link-active {
-    background: var(--color-dark-light);
+    color: var(--white-color);
+    background-color: var(--light-black);
+    border: 1px solid var(--white-color);
+    transition: background-color 600ms;
+  }
+}
+.color__dark {
+  color: var(--white-color);
+  background-color: var(--light-black);
+  &:hover,
+  &.router-link-active {
+    background-color: var(--color-dark-light);
   }
 }
 </style>

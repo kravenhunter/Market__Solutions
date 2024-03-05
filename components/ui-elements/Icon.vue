@@ -12,7 +12,11 @@ defineProps({
   },
   width: {
     type: String,
-    default: "30",
+    default: "35",
+  },
+  bgColor: {
+    type: String,
+    default: "black",
   },
 });
 </script>
@@ -21,4 +25,19 @@ defineProps({
   <Icon :icon="name" :color="color" :width="width" />
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+.bg-light-green {
+  background-color: var(--light-green);
+}
+.bg-black {
+  background-color: var(--black);
+}
+.bg-white {
+  background-color: var(--white-color);
+}
+.rounded {
+  border-radius: 50%;
+  padding: 7px;
+  border: 1px solid black;
+}
+</style>

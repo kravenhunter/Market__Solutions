@@ -1,15 +1,14 @@
 @import "@/assets/styles/normalize.scss";
 @import "@/assets/styles/variables.scss";
-@import "@/assets/styles/fonts.scss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 html {
   font-size: 10px;
 }
 body {
-  font-family: ubuntu, sans-serif;
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: var(--black);
 }
 
 li {
@@ -22,28 +21,47 @@ a {
 }
 
 p {
-  //14px
-  font-size: 1.4rem;
+  //18px
+  font-size: 1.8rem;
+  letter-spacing: 0.03em;
+  line-height: 3rem;
 }
 img {
   max-width: 100%;
   height: auto;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  letter-spacing: 0.03em;
+}
 h1 {
-  font-size: 3.5em;
+  font-size: 6.4em;
+  font-weight: 600;
 }
 h2 {
-  font-size: 2.8em;
+  font-size: 6.2em;
 }
+
 h3 {
-  font-size: 2.45em;
+  font-size: 3.8em;
 }
 h4 {
-  font-size: 2.1em;
+  font-size: 3em;
 }
 h5 {
-  font-size: 17.5em;
+  font-size: 2.5em;
 }
 h6 {
-  font-size: 1.54em;
+  font-size: 2em;
 }
+small {
+  font-size: 1.6rem;
+}
+/* .center__content {
+   width: min(100vw, 1400px);
+} */
