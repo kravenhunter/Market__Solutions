@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Pulse from "~/modules/Main/components/Pulse.vue";
+</script>
 
 <template>
   <article class="business__grow">
@@ -26,7 +28,11 @@
         </ul>
       </div>
     </div>
-    <NuxtImg src="/images/main/businessGrow.jpg" alt="businessGrow" />
+    <Pulse image="/images/main/businessGrow.jpg" title="businessGrow" />
+    <!--     <div class="business__grow__cover">
+     
+      <NuxtImg src="/images/main/businessGrow.jpg" alt="businessGrow" />
+    </div> -->
   </article>
 </template>
 
@@ -36,13 +42,12 @@
 }
 
 .business__grow {
-  padding-top: 139px;
-  width: 100%;
-  display: grid;
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5rem;
 
   &__description {
-    width: 543px;
     display: grid;
     row-gap: 3.2rem;
 
@@ -60,13 +65,6 @@
     &__brands {
       display: flex;
     }
-  }
-  & img {
-    width: 550px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 50%;
   }
 }
 </style>

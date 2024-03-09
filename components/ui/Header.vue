@@ -14,23 +14,38 @@
           <UiElementsButton
             class="px-7 py-2"
             :is-button="false"
-            title="Examples"
-            link-path="/examples">
-            About</UiElementsButton
+            title="Услуги"
+            link-path="/servicesview">
+            Услуги</UiElementsButton
+          >
+        </li>
+        <li>
+          <UiElementsButton class="px-7 py-2" :is-button="false" title="seo" link-path="/seoview">
+            Seo</UiElementsButton
           >
         </li>
         <li>
           <UiElementsButton
             class="px-7 py-2"
             :is-button="false"
+            title="Portfolios"
+            link-path="/portfoliosview">
+            Портфолио</UiElementsButton
+          >
+        </li>
+
+        <li>
+          <UiElementsButton
+            class="px-7 py-2"
+            :is-button="false"
             title="Examples"
-            link-path="/examples">
+            link-path="/contactview">
             Contact Us</UiElementsButton
           >
         </li>
       </ul>
     </nav>
-    <UiElementsButton button-class="color__white"><p>Get in touch</p></UiElementsButton>
+    <UiElementsButton button-class="color__white"><p>Обсудить проект</p></UiElementsButton>
   </header>
 </template>
 

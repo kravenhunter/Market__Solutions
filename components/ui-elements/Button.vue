@@ -35,13 +35,12 @@ defineProps({
   color: var(--light-black);
   background-color: var(--white-color);
   border: 1px solid var(--light-black);
-  transition: background-color 1s;
+  transition: all 600ms;
   &:hover,
   &.router-link-active {
     color: var(--white-color);
     background-color: var(--light-black);
     border: 1px solid var(--white-color);
-    transition: background-color 600ms;
   }
 }
 .color__dark {

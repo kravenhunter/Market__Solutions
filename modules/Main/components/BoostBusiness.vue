@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import Title from "~/components/ui-elements/Title.vue";
-
 const boostList = [
   "Moonlight newspaper up its enjoyment",
   "She new course gets living.",
@@ -14,9 +12,8 @@ const boostList = [
 <template>
   <article class="boost">
     <div class="boost__description">
-      <!--     <h4>Our Mission</h4>
-      <h2>Boost your with your business.</h2> -->
-      <Title small="Our Mission" huge="Boost your with your business." text-position="initial" />
+      <slot name="title"></slot>
+
       <p>
         He moonlights difficult engrossed it, sportsmen. Interested has all Devonshire difficulty
         assistance joy.
@@ -53,11 +50,11 @@ const boostList = [
 .boost,
 .boost__description__list,
 .boost__images {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .boost {
   column-gap: 6.9rem;
-  padding: 120px 0 120px 0;
 
   & h4 {
     color: var(--light-green);
@@ -98,7 +95,7 @@ const boostList = [
         display: flex;
         column-gap: 2rem;
         text-align: center;
-        align-items: start;
+        align-items: flex-start;
         &__one {
           width: min(100%, 200px);
           display: grid;

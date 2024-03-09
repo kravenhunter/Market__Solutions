@@ -26,6 +26,13 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
+.icon-hover-white {
+  transition: all 300ms;
+  &:hover {
+    background-color: var(--white-color);
+    stroke: black;
+  }
+}
 .bg-light-green {
   background-color: var(--light-green);
 }

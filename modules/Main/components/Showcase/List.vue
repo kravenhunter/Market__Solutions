@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Title from "~/components/ui-elements/Title.vue";
 import ShowCaseItem from "~/modules/Main/components/Showcase/Item.vue";
 
 const showcases = [
@@ -28,8 +27,7 @@ const showcases = [
 
 <template>
   <article class="showcases">
-    <Title :is-small-show="false" huge="Recent Showcase" color-huge="black" />
-
+    <slot name="title"></slot>
     <div class="showcases__list">
       <ul class="showcases__list__first">
         <ShowCaseItem
@@ -60,12 +58,13 @@ const showcases = [
       display: grid;
       row-gap: 8.8rem;
       & li {
+        /*  width: min(100%, 664px); */
         display: grid;
         row-gap: 1.6rem;
         color: black;
-        & img {
-          width: 100vw;
-        }
+        /*   & img {
+          width: 100%;
+        } */
       }
     }
     &__second {

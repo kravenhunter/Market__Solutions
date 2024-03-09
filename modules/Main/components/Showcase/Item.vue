@@ -13,7 +13,7 @@ defineProps<IProps>();
 
 <template>
   <li>
-    <NuxtImg :src="showcase.image" :alt="showcase.title" />
+    <NuxtImg :src="showcase.image" :alt="showcase.title" width="664" />
     <h4>{{ showcase.title }}</h4>
     <p>{{ showcase.content }}</p>
   </li>
