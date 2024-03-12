@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <ul class="cover__list">
     <slot name="list" />

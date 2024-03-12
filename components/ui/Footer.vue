@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <footer class="footer">
     <div class="footer__top">
@@ -7,28 +5,28 @@
         <IconsLogo />
         <div class="footer__top__logo__details">
           <p>
-            We’re a team of strategic creator and digital innovator, united focus in our pursuit of
-            mastery and joyful.
+            Мы - команда разработчиков и цифровых новаторов, объединенных стремлением к
+            совершенству.
           </p>
         </div>
       </div>
       <div class="footer__top__pages">
         <ul>
-          <li>Pages</li>
-          <li>Home</li>
-          <li>About</li>
-          <li>Conatct Us</li>
-          <li>Portfolio</li>
-          <li>Portfolio Single</li>
+          <li>Страницы</li>
+          <li><NuxtLink to="/">Чем занимаемся</NuxtLink></li>
+          <li><NuxtLink to="/servicesview">Услуги</NuxtLink></li>
+          <li><NuxtLink to="/seoview">Seo</NuxtLink></li>
+          <li><NuxtLink to="/contactview">Контакты</NuxtLink></li>
+          <li><NuxtLink to="/portfoliosview">Портфолио</NuxtLink></li>
         </ul>
-        <ul>
+        <!--  <ul>
           <li>Utility Pages</li>
           <li>Style Guide</li>
           <li>Instruction</li>
           <li>License</li>
           <li>Changelog</li>
           <li>Password Protected</li>
-        </ul>
+        </ul> -->
       </div>
       <div class="footer__top__subscribe">
         <h6>Subscribe</h6>
@@ -42,15 +40,15 @@
     <ul class="footer__bottom">
       <li class="footer__bottom__contacts">
         <h6>Copyright by</h6>
-        <small>Designed by Iconstica.com</small>
+        <small>Designed by Sergio Below</small>
       </li>
       <li class="footer__bottom__contacts">
-        <h6>Contact Us</h6>
-        <small>+0 12 457 4578</small>
+        <h6>Напишите нам</h6>
+        <small>wiz-solution-design@yandex.ru</small>
       </li>
       <li class="footer__bottom__contacts">
-        <h6>Address</h6>
-        <small>119 Tanglewood Lane Gulfport, MS 39503</small>
+        <h6>Адрес</h6>
+        <small>г. Брянск, ул. Дуки 60</small>
       </li>
       <li class="footer__bottom__socials">
         <UiElementsIcon name="uit:facebook-f" class="rounded bg-white" />
@@ -63,7 +61,8 @@
 
 <style scoped lang="scss">
 .footer {
-  padding: 10rem 0 6rem;
+  padding-top: 10rem;
+  padding-bottom: 6rem;
   &__top,
   &__top__pages {
     display: flex;
@@ -122,6 +121,17 @@
           padding: 1.2rem;
         }
       }
+      @media (max-width: 455px) {
+        display: none;
+      }
+    }
+    @media (max-width: 1024px) {
+      display: grid;
+      justify-items: center;
+      row-gap: 5rem;
+      &__subscribe ul {
+        display: none;
+      }
     }
   }
 
@@ -137,6 +147,11 @@
     &__socials {
       display: flex;
       column-gap: 2rem;
+    }
+    @media (max-width: 780px) {
+      display: grid;
+      justify-content: center;
+      row-gap: 5rem;
     }
   }
 }

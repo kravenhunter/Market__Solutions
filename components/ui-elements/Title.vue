@@ -20,7 +20,7 @@ const props = defineProps({
   },
   isSmallShow: {
     type: Boolean,
-    default: true,
+    default: false,
   },
   titleLevel: {
     type: Number,
@@ -28,7 +28,6 @@ const props = defineProps({
   },
 });
 
-//const hTag = h(`h${props.titleLevel}`, { style: { color: "black" } }, props.huge);
 const hTag = h(`h${props.titleLevel}`, null, props.huge);
 
 const titleTag = defineComponent({
@@ -36,47 +35,6 @@ const titleTag = defineComponent({
     return hTag;
   },
 });
-
-// const attrs =  useAttrs()
-//  const slots = useSlots()
-// const titleTag = defineComponent({
-//   render() {
-//     return h(`h2`,   {
-//      ...attrs,
-//      class: attrs.class.includes('red') ? 'blue' : ''
-//    },
-//    slots.default())
-// return () => h('div', null, slots.default({ text: text.value }))
-//   }
-// })
-
-// h('div')
-// h('div', { id: 'foo' })
-
-// both attributes and properties can be used in props
-// Vue automatically picks the right way to assign it
-// h('div', { class: 'bar', innerHTML: 'hello' })
-
-// props modifiers such as `.prop` and `.attr` can be added
-// with `.` and `^` prefixes respectively
-// h('div', { '.name': 'some-name', '^width': '100' })
-
-// // class and style have the same object / array
-// // value support that they have in templates
-// h('div', { class: [foo, { bar }], style: { color: 'red' } })
-
-// // event listeners should be passed as onXxx
-// h('div', { onClick: () => {} })
-
-// // children can be a string
-// h('div', { id: 'foo' }, 'hello')
-
-// // props can be omitted when there are no props
-// h('div', 'hello')
-// h('div', [h('span', 'hello')])
-
-// // children array can contain mixed vnodes and strings
-// h('div', ['hello', h('span', 'hello')])
 </script>
 
 <template>

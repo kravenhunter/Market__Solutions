@@ -1,153 +1,108 @@
 <script setup lang="ts">
-import Title from "~/components/ui-elements/Title.vue";
+import { vMaska } from "maska";
 
-interface ISocials {
-  icon: string;
-  link: string;
-}
-interface IContacts {
-  title: string;
-  content: string;
-  email: string;
-  watsUp: string;
-  socials: ISocials[];
-}
-interface IProps {
-  contactUs: IContacts;
-}
+const state = reactive({
+  name: "",
+  companyName: "",
+  email: "",
+  phone: "",
+  message: "",
+});
 
-defineProps<IProps>();
+const phoneMask = reactive({
+  mask: "+{7}(###)###-##-##",
+  eager: true,
+});
+
+const TOKEN = "7156471899:AAHRMFPMOTU5UulZRbZ7PsJrB-Xl5g5SL68";
+const API_URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+const CHAT_ID = "-1002081916896";
+
+const isFilled = computed(() => !!(state.name && state.email && state.phone && state.message));
+
+const sendForm = async () => {
+  if (isFilled.value) {
+    const text = `\n
+        <b>Имя: </b><i> ${state.name} </i>\n
+        <b>Название компании: </b> <i> ${state.companyName}</i> \n
+        <b>Почта: </b> <i> ${state.email}</i> \n
+        <b>Телефон: </b> <i> ${state.phone}</i> \n
+        <b>Коментарий: </b> <i> ${state.message}</i> \n
+    `;
+
+    try {
+      const result = await $fetch(API_URL, {
+        method: "POST",
+        body: {
+          chat_id: CHAT_ID,
+          parse_mode: "html",
+          text,
+        },
+      });
+      console.log(result);
+
+      /*     popap.value.buttonTrigger = !popap.value.buttonTrigger;
+    popap.value.timerTrigger = !popap.value.buttonTrigger; */
+    } catch (error) {
+      console.log(error);
+
+      /*  popap.value.buttonTrigger = !popap.value.buttonTrigger; */
+    }
+  }
+};
 </script>
 
 <template>
-  <div class="contacts">
-    <div class="contacts__details">
-      <Title
-        :title-level="3"
-        :huge="contactUs.title"
-        :content-text="contactUs.content"
-        text-position="initial"
-        color-huge="black" />
-
-      <ul class="contacts__details__socials">
-        <li>
-          <UiElementsIcon
-            name="mdi-light:email"
-            class="rounded bg-black"
-            color="white"
-            width="50" />
-          <div class="contacts__details__socials__item">
-            <h6>Our email</h6>
-            <small>{{ contactUs.email }}</small>
-          </div>
-        </li>
-        <li>
-          <UiElementsIcon name="prime:whatsapp" class="rounded bg-black" color="white" width="50" />
-          <div class="contacts__details__socials__item">
-            <h6>Call us</h6>
-            <small>{{ contactUs.email }}</small>
-          </div>
-        </li>
-        <li>
-          <UiElementsIcon name="ph:rss" class="rounded bg-black" color="white" width="50" />
-          <div class="contacts__details__socials__item">
-            <h6>Find us</h6>
-            <ul>
-              <li v-for="(media, index) in contactUs.socials" :key="index">
-                <UiElementsIcon
-                  :name="media.icon"
-                  class="rounded bg-black icon-hover-white"
-                  color="white"
-                  width="40" />
-              </li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <form class="contacts__form">
-      <label>
-        <p>First name</p>
-        <input type="text" />
-      </label>
-      <label>
-        <p>Last name</p>
-        <input type="text" />
-      </label>
-      <label>
-        <p>Email</p>
-        <input type="text" />
-      </label>
-      <label>
-        <p>Phone</p>
-        <input type="text" />
-      </label>
-      <label class="message">
-        <p>Message</p>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-      </label>
-      <UiElementsButton button-class="color__white">Send Message</UiElementsButton>
-    </form>
-  </div>
+  <form class="contacts__form" @submit.prevent="sendForm">
+    <label>
+      <p>Имя*</p>
+      <input type="text" v-model="state.name" />
+    </label>
+    <label>
+      <p>Название компании</p>
+      <input type="text" v-model="state.companyName" />
+    </label>
+    <label>
+      <p>Почта*</p>
+      <input type="text" v-model="state.email" />
+    </label>
+    <label>
+      <p>Телефон*</p>
+      <input type="text" v-maska:[phoneMask] v-model="state.phone" />
+    </label>
+    <label class="message">
+      <p>Message*</p>
+      <textarea v-model="state.message" name="" id="" cols="30" rows="10"></textarea>
+    </label>
+    <UiElementsButton type="submit" button-class="color__white">Send Message</UiElementsButton>
+  </form>
 </template>
 
 <style scoped lang="scss">
-.contacts {
-  font-family: var(--second-family);
+.contacts__form {
+  width: min(100%, 795px);
+  font-weight: 400;
+  font-size: 18px;
+  background-color: var(--light-grey);
+  padding: 4.5rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  color: var(--black);
-
-  & .titles {
-    border-bottom: 1px solid rgba(18, 17, 17, 0.143);
-  }
-  &__details {
-    width: min(100%, 401px);
-    display: grid;
-    row-gap: 3.2rem;
-
-    &__socials {
-      display: grid;
-
-      & li {
-        display: flex;
-        column-gap: 2.6rem;
-      }
-      &__item {
-        display: flex;
-        flex-direction: column;
-        row-gap: 1rem;
-        & ul {
-          display: flex;
-          column-gap: 1rem;
-        }
-      }
-    }
-  }
-  &__form {
-    width: min(100%, 795px);
-    font-weight: 400;
-    font-size: 18px;
-    background-color: var(--light-grey);
-    padding: 4.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 5.2rem;
-    & label {
-      width: min(100%, 325px);
-      & input,
-      textarea {
-        width: 100%;
-        padding: 1rem;
-        &:focus {
-          outline-width: 0;
-        }
-      }
-    }
-    & .message {
+  row-gap: 5.2rem;
+  column-gap: 1rem;
+  & label {
+    width: min(100%, 325px);
+    & input,
+    textarea {
       width: 100%;
+      padding: 1rem;
+      &:focus {
+        outline-width: 0;
+      }
     }
+  }
+  & .message {
+    width: 100%;
   }
 }
 </style>

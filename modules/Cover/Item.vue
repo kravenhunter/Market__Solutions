@@ -8,7 +8,7 @@ defineProps<IProps>();
 <template>
   <div class="cover__item">
     <NuxtImg :src="image" fit="cover" />
-    <!--     <div class="cover__item__shadow"></div> -->
+
     <div class="cover__item__title">
       <slot name="title" />
     </div>
@@ -65,9 +65,5 @@ defineProps<IProps>();
       opacity: 1;
     }
   }
-
-  /*   &:hover::after {
-    opacity: 0.6;
-  } */
 }
 </style>

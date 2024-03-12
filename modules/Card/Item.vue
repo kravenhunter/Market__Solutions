@@ -2,61 +2,45 @@
 interface IProps {
   alt?: string;
   image?: string;
+  columDirection?: string;
 }
-defineProps<IProps>();
-/* 
-defineProps({
-  alt: {
-    type: String,
-    required: false,
-  },
-  image: {
-    type: String,
-    required: false,
-  },
-  columDirection: {
-    type: String,
-    default: "row",
-  },
-}); */
 
-/* withDefaults(defineProps<Props>(), {
-  msg: 'hello',
-  labels: () => ['one', 'two']
-}) */
+withDefaults(defineProps<IProps>(), {
+  columDirection: "row",
+  // labels: () => ['one', 'two']
+});
 </script>
 
 <template>
   <article class="card">
     <div class="card__details">
       <slot name="title"></slot>
-
-      <UiElementsButton button-class="color__white">
-        <UiElementsIcon name="oui:arrow-right" class="rounded bg-black" color="white" />
-        <p class="trial">Расчитать стоимость</p>
-      </UiElementsButton>
+      <slot name="button" />
     </div>
-    <slot name="cover"></slot>
-    <div v-if="image && alt" class="card__cover">
-      <NuxtImg :src="image" width="644" :alt="alt" />
+
+    <div class="card__cover">
+      <NuxtImg v-if="image && alt" :src="image" width="644" :alt="alt" />
+      <slot name="cover"></slot>
     </div>
   </article>
 </template>
 
 <style scoped lang="scss">
 .card {
-  display: grid;
+  /*   display: grid;
   grid-template-columns: 1fr 1fr;
-  /*   display: flex;
-  flex-direction: v-bind(columDirection); */
-  /*   justify-content: space-between; */
+  grid-auto-flow: dense;
+  direction: rtl; */
 
-  padding: 10rem 0;
+  display: flex;
+  flex-direction: v-bind(columDirection);
+  justify-content: space-between;
+  column-gap: 3rem;
   &__details {
     width: min(100%, 681px);
-    & .titles {
-      margin-bottom: 3rem;
-    }
+  }
+  &__cover {
+    width: min(100%, 644px);
   }
 }
 </style>

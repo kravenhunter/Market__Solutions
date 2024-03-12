@@ -51,4 +51,17 @@ defineProps({
     background-color: var(--color-dark-light);
   }
 }
+.base__link {
+  display: grid;
+  text-align: center;
+  background-color: var(--white-color);
+  color: var(--light-black);
+  border: 1px solid var(--light-black);
+  padding: 1.2rem;
+  &:hover,
+  &.router-link-active {
+    background-color: var(--light-black);
+    color: var(--white-color);
+  }
+}
 </style>

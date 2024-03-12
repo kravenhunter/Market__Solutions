@@ -3,41 +3,8 @@ import Title from "~/components/ui-elements/Title.vue";
 import CardItem from "~/modules/Card/Item.vue";
 import CoverItem from "~/modules/Cover/Item.vue";
 import CoverList from "~/modules/Cover/List.vue";
+import { missionTitle, portfolioList, portfolioTitle } from "~/store/static__data";
 
-const portfolioTitle = {
-  title: "Портфолио",
-  content: `web.solution – это команда разработчиков, имеющих большой опыт разработки: Web-сервисов и порталов, мобильных приложений и десктоп-приложений, а также комплексов работы с оборудованием и различных интеграций.`,
-  image: "/images/services/magic.jpg",
-};
-
-const missionTitle = {
-  title: "Наша миссия",
-  content: `Cделать ваш бизнес успешным, предоставляя инновационные и качественные IT-решения, которые помогут вам выделиться среди конкурентов и добиться поистине выдающихся результатов.`,
-  image: "/images/services/magic.jpg",
-};
-
-const webPortfolioList = [
-  {
-    title: "Блог",
-    content: `Торговая площадка по найму фрилансеров, где продавец может приобрести тарифные планы (ежемесячные/ежегодные/пожизненные/бесплатные) для продажи своих услуг/выступлений.`,
-    image: "/images/portfolios/news.png",
-  },
-  {
-    title: "Магазин",
-    content: `Торговая площадка по найму фрилансеров, где продавец может приобрести тарифные планы (ежемесячные/ежегодные/пожизненные/бесплатные) для продажи своих услуг/выступлений.`,
-    image: "/images/portfolios/store.png",
-  },
-  {
-    title: "Сервис услуг",
-    content: `Торговая площадка по найму фрилансеров, где продавец может приобрести тарифные планы (ежемесячные/ежегодные/пожизненные/бесплатные) для продажи своих услуг/выступлений.`,
-    image: "/images/portfolios/law.png",
-  },
-  {
-    title: "Туризм",
-    content: `Торговая площадка по найму фрилансеров, где продавец может приобрести тарифные планы (ежемесячные/ежегодные/пожизненные/бесплатные) для продажи своих услуг/выступлений.`,
-    image: "/images/portfolios/tourizm.png",
-  },
-];
 useSeoMeta({
   title: "Портфолио",
   ogTitle: "Портфолио",
@@ -46,7 +13,7 @@ useSeoMeta({
 
 <template>
   <section class="portfolio__section section__bg-white">
-    <CardItem class="center__content">
+    <CardItem class="center__content horisontal__gaps">
       <template #title>
         <Title
           :title-level="3"
@@ -70,10 +37,7 @@ useSeoMeta({
     <span class="center__content"> </span>
     <CoverList>
       <template #list>
-        <CoverItem
-          v-for="{ title, content, image } in webPortfolioList"
-          :key="title"
-          :image="image">
+        <CoverItem v-for="{ title, content, image } in portfolioList" :key="title" :image="image">
           <template #title>
             <Title
               :title-level="5"
